@@ -1,3 +1,11 @@
+
+<div>
+  <h1>Click on the GitHub icon below to view the project online.</h1>
+<a href = "https://hamiparsa.github.io/Menu-Fast-Food/">
+  <img src ="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+</div>
+
 Restaurant Menu Project 🍔🍕☕
 
 This is a restaurant menu web application with multiple features and a responsive design.
