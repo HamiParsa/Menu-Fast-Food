@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Set background color for whole page */
+body, html {
+  background-color: #F6F1E9;
+
+  /* Smooth scrolling when user clicks links */
+  scroll-behavior: smooth;
+}

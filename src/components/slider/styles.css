@@ -1,0 +1,112 @@
+/* Main Swiper container */
+.swiper {
+  width: 75%;              /* Make slider take 75% of page width */
+  height: 100%;            /* Full height */
+  margin: 50px auto;       /* Center with margin */
+  border-radius: 25px;     /* Rounded corners */
+  overflow: hidden;        /* Hide overflow */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Shadow effect */
+  position: relative;      /* Needed for positioning elements inside */
+}
+
+/* Each slide */
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #111;        /* Dark background behind images */
+  display: flex;           /* Center content */
+  justify-content: center;
+  align-items: center;
+  height: 500px;           /* Height of each slide */
+  transition: transform 0.5s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slide images */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Image covers all space */
+  transition: transform 0.5s ease, filter 0.5s ease;
+  border-radius: 20px;
+}
+
+/* Zoom effect when hover on slide */
+.swiper-slide:hover img {
+  transform: scale(1.12);  /* Zoom in */
+  filter: brightness(0.75);/* Make image darker */
+}
+
+/* Next and previous buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  background: rgba(255, 255, 255, 0.65); /* Light background */
+  border-radius: 50%;       /* Round buttons */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;                 /* Center vertically */
+  transform: translateY(-50%);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-50%) scale(1.2); /* Slightly bigger */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Icon inside buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 22px;
+  color: #555;
+}
+
+/* Image container (extra safety for overflow) */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark gradient layer on slides */
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  border-radius: 20px;
+}
+
+/* Responsive: for tablets */
+@media (max-width: 1000px) {
+  .swiper-slide {
+    height: 300px; /* Smaller height */
+  }
+}
+
+/* Responsive: for mobile */
+@media (max-width: 600px) {
+  .swiper {
+    width: 95%; /* Almost full width */
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 35px;  /* Smaller buttons */
+    height: 35px;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 18px; /* Smaller icons */
+  }
+}
