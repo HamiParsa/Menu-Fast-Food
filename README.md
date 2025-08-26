@@ -32,6 +32,27 @@ This project demonstrates a modern web application for a restaurant menu. Users 
 
 This project is perfect for practicing React, Next.js, TypeScript, Tailwind CSS, and Zustand in a real-world scenario.
 
+If you want, I can also make a compact README version ready to paste directly into your GitHub repository. Do you want me to do that?
+
 <hr/>
 
-If you want, I can also make a compact README version ready to paste directly into your GitHub repository. Do you want me to do that?
+<h1>Project Images : 🖼️</h1>
+<img src = "/pic1.png" />
+<br/>
+<br/>
+<hr>
+<img src = "/pic2.png" />
+<br/>
+<br/>
+<hr>
+<img src = "/pic3.png" />
+<br/>
+<br/>
+<hr>
+<img src = "/pic4.png" />
+<br/>
+<br/>
+<hr>
+<img src = "/pic5.png" />
+<br/>
+<br/>
