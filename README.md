@@ -11,28 +11,44 @@ Restaurant Menu Project 🍔🍕☕
 This is a restaurant menu web application with multiple features and a responsive design.
 
 Features:
+<ul>
+  <li>
+    Home Page with a slider for images
+  </li>
+  <li>
+    Navigation Bar (NavBar) for easy page navigation
+  </li>
+  <li>
+    Shopping Cart to add, remove, and manage food items (using Zustand for state management)
+  </li>
+  <li>
+    Menu Page with product filtering by category (Pizza, Burger, Coffee, etc.)
+  </li>
+  <li>
+    Fully responsive for mobile, tablet, and desktop screens
+  </li>
+</ul>
 
-Home Page with a slider for images
-
-Navigation Bar (NavBar) for easy page navigation
-
-Shopping Cart to add, remove, and manage food items (using Zustand for state management)
-
-Menu Page with product filtering by category (Pizza, Burger, Coffee, etc.)
-
-Fully responsive for mobile, tablet, and desktop screens
 
 Technologies Used:
 
-React for building UI components
-
-Next.js for server-side rendering and routing
-
-TypeScript for type safety and better code quality
-
-Tailwind CSS for fast and responsive styling
-
-Zustand for global state management (cart state, quantities, etc.)
+<ul>
+  <li>
+    React for building UI components
+  </li>
+  <li>
+    Next.js for server-side rendering and routing
+  </li>
+  <li>
+    TypeScript for type safety and better code quality
+  </li>
+  <li>
+    Tailwind CSS for fast and responsive styling
+  </li>
+  <li>
+    Zustand for global state management (cart state, quantities, etc.)
+  </li>
+</ul>
 
 Description:
 
@@ -45,22 +61,14 @@ If you want, I can also make a compact README version ready to paste directly in
 <hr/>
 
 <h1>Project Images : 🖼️</h1>
-<img src = "/pic1.png" />
-<br/>
-<br/>
+<div>
+  <img src = "/pic1.png" width="500px" />
+<img src = "/pic2.png" width="500px" />
+</div>
 <hr>
-<img src = "/pic2.png" />
-<br/>
-<br/>
-<hr>
-<img src = "/pic3.png" />
-<br/>
-<br/>
-<hr>
-<img src = "/pic4.png" />
-<br/>
-<br/>
-<hr>
-<img src = "/pic5.png" />
-<br/>
-<br/>
+<div>
+  <img src = "/pic4.png" width="500px" />
+  <img src = "/pic5.png" width="500px" />
+</div>
+
+
