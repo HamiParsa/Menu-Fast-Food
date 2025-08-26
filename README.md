@@ -34,19 +34,24 @@ Technologies Used:
 
 <ul>
   <li>
-    React for building UI components
+    React for building UI components 
+    <img width='20px' src='https://skillicons.dev/icons?i=react'>
   </li>
   <li>
     Next.js for server-side rendering and routing
+    <img width='20px' src='https://skillicons.dev/icons?i=next'>
   </li>
   <li>
     TypeScript for type safety and better code quality
+    <img width='20px' src='https://skillicons.dev/icons?i=typescript'>
   </li>
   <li>
     Tailwind CSS for fast and responsive styling
+    <img width='20px' src='https://skillicons.dev/icons?i=tailwindcss'>
   </li>
   <li>
     Zustand for global state management (cart state, quantities, etc.)
+   <img width='20px' src='https://skillicons.dev/icons?i=redux'>
   </li>
 </ul>
 
