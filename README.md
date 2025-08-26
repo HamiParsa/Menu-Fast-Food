@@ -60,15 +60,20 @@ If you want, I can also make a compact README version ready to paste directly in
 
 <hr/>
 
-<h1>Project Images : 🖼️</h1>
-<div>
-  <img src = "/pic1.png" width="500px" />
-<img src = "/pic2.png" width="500px" />
+<h1 align="center">Project Images : 🖼️</h1>
+<div align="center">
+  <img src = "/pic1.png" width="700px" />
+  <br/>
+  <br/>
+  
+  <img src = "/pic2.png" width="700px" />
 </div>
 <hr>
-<div>
-  <img src = "/pic4.png" width="500px" />
-  <img src = "/pic5.png" width="500px" />
+<div align="center">
+  <img src = "/pic4.png" width="700px" />
+  <br/>
+  <br/>
+  <img src = "/pic5.png" width="700px" />
 </div>
 
 
