@@ -72,6 +72,9 @@ If you want, I can also make a compact README version ready to paste directly in
   <br/>
   
   <img src = "/pic2.png" width="700px" />
+  <br/>
+  <br/>
+  <img src = "/pic3.png" width="700px" />
 </div>
 <hr>
 <div align="center">
