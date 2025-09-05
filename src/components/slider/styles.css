@@ -1,27 +1,30 @@
 /* Main Swiper container */
 .swiper {
-  width: 75%;              /* Make slider take 75% of page width */
-  height: 100%;            /* Full height */
-  margin: 50px auto;       /* Center with margin */
-  border-radius: 25px;     /* Rounded corners */
-  overflow: hidden;        /* Hide overflow */
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Shadow effect */
-  position: relative;      /* Needed for positioning elements inside */
+  width: 75%;
+  height: 100%;
+  margin: 50px auto;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+  position: relative;
+  background: linear-gradient(135deg, #1e1e1e, #111);
 }
 
 /* Each slide */
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #111;        /* Dark background behind images */
-  display: flex;           /* Center content */
+  background: #111;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;           /* Height of each slide */
-  transition: transform 0.5s ease;
-  border-radius: 20px;
+  height: 500px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  border-radius: 25px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
 
 /* Slide images */
@@ -29,46 +32,59 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* Image covers all space */
-  transition: transform 0.5s ease, filter 0.5s ease;
-  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease, scale 0.6s ease;
+  border-radius: 25px;
+  filter: brightness(0.85);
 }
 
-/* Zoom effect when hover on slide */
+/* Zoom + blur effect on hover */
 .swiper-slide:hover img {
-  transform: scale(1.12);  /* Zoom in */
-  filter: brightness(0.75);/* Make image darker */
+  transform: scale(1.15) rotate(-1deg);
+  filter: brightness(0.7) blur(1px);
+}
+
+/* Gradient overlay for depth */
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  border-radius: 25px;
 }
 
 /* Next and previous buttons */
 .swiper-button-next,
 .swiper-button-prev {
-  background: rgba(255, 255, 255, 0.65); /* Light background */
-  border-radius: 50%;       /* Round buttons */
-  width: 45px;
-  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 50%;                 /* Center vertically */
+  top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
   transition: all 0.3s ease;
 }
 
 /* Hover effect for buttons */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: translateY(-50%) scale(1.2); /* Slightly bigger */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.3);
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
 }
 
 /* Icon inside buttons */
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 22px;
-  color: #555;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ffbf00;
 }
 
 /* Image container (extra safety for overflow) */
@@ -77,36 +93,25 @@
   overflow: hidden;
 }
 
-/* Dark gradient layer on slides */
-.swiper-slide::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
-  z-index: 1;
-  transition: opacity 0.4s ease;
-  border-radius: 20px;
-}
-
-/* Responsive: for tablets */
+/* Responsive: tablets */
 @media (max-width: 1000px) {
   .swiper-slide {
-    height: 300px; /* Smaller height */
+    height: 350px;
   }
 }
 
-/* Responsive: for mobile */
+/* Responsive: mobile */
 @media (max-width: 600px) {
   .swiper {
-    width: 95%; /* Almost full width */
+    width: 95%;
   }
   .swiper-button-next,
   .swiper-button-prev {
-    width: 35px;  /* Smaller buttons */
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    font-size: 18px; /* Smaller icons */
+    font-size: 18px;
   }
 }

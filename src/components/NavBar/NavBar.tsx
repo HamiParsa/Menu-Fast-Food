@@ -1,115 +1,117 @@
-"use client"; // This makes the component run on client side in Next.js
+"use client";
+import Image from "next/image";
+import { RiHomeSmile2Fill } from "react-icons/ri";
+import { FcAbout } from "react-icons/fc";
+import { MdRestaurantMenu } from "react-icons/md";
+import { FaOpencart } from "react-icons/fa6";
+import { useCartStore } from "@/store/cartStore";
+import { IoFastFoodOutline } from "react-icons/io5";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
-// Importing things we need
-import Image from "next/image"; // For optimized images in Next.js
-import { RiHomeSmile2Fill } from "react-icons/ri"; // Home icon
-import { FcAbout } from "react-icons/fc"; // About icon
-import { MdRestaurantMenu } from "react-icons/md"; // Menu icon
-import { FaOpencart } from "react-icons/fa6"; // Cart icon
-import { useCartStore } from "@/store/cartStore"; // Store for cart items
-import { IoFastFoodOutline } from "react-icons/io5"; // Food icon
-import { Menu, X } from "lucide-react"; // Menu and close icons
-import Link from "next/link"; // Next.js link (for navigation)
-import { useState } from "react"; // React state hook
-
-// NavBar component
-export default function NavBar() {
-  // Get total number of items from cart store
+export default function UltraFancyNavBar() {
   const totalItems = useCartStore((state) =>
     state.cart.reduce((sum, item) => sum + item.quantity, 0)
   );
-
-  // "open" is for showing or hiding the mobile menu
   const [open, setOpen] = useState(false);
 
+  const handleMobileLinkClick = () => setOpen(false);
+
   return (
-    // Main container of NavBar
-    <div
-      id="goToNav"
-      className="w-3/4 h-[100px] bg-white rounded-2xl shadow-md m-auto mt-[30px] flex justify-between items-center px-8 relative"
-    >
-      {/* Logo text (only visible on medium screen and bigger) */}
-      <div className="text-2xl hidden md:block">mcdonalds</div>
+    <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-11/12 md:w-3/4 h-[100px] z-[9999]">
+      {/* Glassmorphic navbar container */}
+      <div className="w-full h-full bg-white/60 backdrop-blur-2xl rounded-3xl shadow-2xl flex justify-between items-center px-8 animate-slideDown">
+        
+        {/* Logo (desktop only) */}
+        <div className="text-2xl hidden md:block font-extrabold text-amber-500 animate-floatText cursor-pointer hover:scale-110 transition-transform duration-300">
+          McDonalds
+        </div>
 
-      {/* Navigation links (desktop) */}
-      <ul className="hidden md:flex text-lg gap-12 font-medium">
-        {/* Home link */}
-        <Link href="/">
-          <li className="hover:text-amber-600 hover:border-b-2 border-amber-600 cursor-pointer flex items-center gap-2 transition-colors">
-            <RiHomeSmile2Fill className="text-xl text-green-400" /> Home
-          </li>
-        </Link>
+        {/* Desktop navigation links */}
+        <ul className="hidden md:flex text-lg gap-12 font-medium">
+          {[
+            { href: "/", label: "Home", icon: <RiHomeSmile2Fill className="text-xl text-green-400" /> },
+            { href: "/cart", label: "Cart", icon: <FaOpencart className="text-xl text-gray-800" />, badge: totalItems },
+            { href: "/about", label: "About", icon: <FcAbout className="text-xl" /> },
+            { href: "/menu", label: "Menu", icon: <MdRestaurantMenu className="text-xl text-red-500" /> }
+          ].map((link, idx) => (
+            <Link key={idx} href={link.href}>
+              <li className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:text-amber-600 hover:scale-105 hover:shadow-lg relative">
+                {link.icon} {link.label}
+                {/* Cart badge */}
+                {link.badge && link.badge > 0 && (
+                  <div className="absolute -top-2 -right-3 w-6 h-6 bg-red-500 rounded-full flex justify-center items-center text-white text-sm font-bold animate-pulse shadow-lg">
+                    {link.badge}
+                  </div>
+                )}
+              </li>
+            </Link>
+          ))}
+        </ul>
 
-        {/* Cart link with number of items */}
-        <Link href="/cart">
-          <li className="hover:text-amber-600 hover:border-b-2 border-amber-600 cursor-pointer flex items-center gap-2 transition-colors">
-            <FaOpencart className="text-xl text-shadow-gray-500 " /> Cart
-            <div className="flex justify-center items-center w-[20px] h-[20px] rounded-full bg-amber-500">
-              {totalItems}
-            </div>
-          </li>
-        </Link>
+        {/* Mobile menu toggle button */}
+        <button onClick={() => setOpen(!open)} className="md:hidden z-50 p-2 rounded-full bg-white/50 backdrop-blur-lg shadow-md hover:bg-white transition-all duration-300">
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
 
-        {/* About link */}
-        <Link href='/about'>
-          <li className="hover:text-amber-600 hover:border-b-2 border-amber-600 cursor-pointer flex items-center gap-2 transition-colors">
-            <FcAbout className="text-xl" /> About
-          </li>
-        </Link>
+        {/* Right section: food icon + logo */}
+        <div className="flex items-center gap-3 animate-float">
+          <IoFastFoodOutline className="text-3xl text-amber-600 hover:scale-110 transition-transform duration-300" />
+          <Image
+            width={70}
+            height={70}
+            src="https://png.pngtree.com/recommend-works/png-clipart/20250209/ourmid/pngtree-mcdonalds-logo-png-image_15326104.png"
+            alt="Logo"
+            className="object-contain hover:scale-110 transition-transform duration-300"
+          />
+        </div>
+      </div>
 
-        {/* Menu link */}
-        <Link href="/menu">
-          <li className="hover:text-amber-600 hover:border-b-2 border-amber-600 cursor-pointer flex items-center gap-2 transition-colors">
-            <MdRestaurantMenu className="text-xl text-red-500" /> Menu
-          </li>
-        </Link>
-      </ul>
-
-      {/* Button for opening/closing mobile menu */}
-      <button onClick={() => setOpen(!open)} className="md:hidden">
-        {open ? <X size={28} /> : <Menu size={28} />}
-      </button>
-
-      {/* Mobile menu (only shows when "open" is true) */}
+      {/* Mobile navigation menu */}
       {open && (
-        <ul className=" z-1000 mt-1 absolute top-[100px] left-0 w-full bg-white shadow-lg flex flex-col gap-6 p-6 md:hidden text-lg font-medium rounded-b-2xl">
-          <Link href="/">
-            <li className=" flex items-center gap-2 transition-colors">
-              <RiHomeSmile2Fill className="text-xl text-green-400" /> Home
-            </li>
-          </Link>
-          <Link href="/cart">
-            <li className="flex items-center gap-2 transition-colors">
-              <FaOpencart className="text-xl text-shadow-gray-500 " /> Cart
-              <div className="flex justify-center items-center w-[20px] h-[20px] rounded-full bg-amber-500">
-                {totalItems}
-              </div>
-            </li>
-          </Link>
-          <Link href='/about'>
-            <li className=" flex items-center gap-2 transition-colors">
-              <FcAbout className="text-xl" /> About
-            </li>
-          </Link>
-          <Link href="/menu">
-            <li className=" flex items-center gap-2 transition-colors">
-              <MdRestaurantMenu className="text-xl text-red-500" /> Menu
-            </li>
-          </Link>
+        <ul className="absolute top-[100px] left-0 w-full bg-white/80 backdrop-blur-2xl rounded-b-3xl shadow-2xl flex flex-col gap-6 p-6 md:hidden animate-slideDown">
+          {[
+            { href: "/", label: "Home", icon: <RiHomeSmile2Fill className="text-xl text-green-400" /> },
+            { href: "/cart", label: "Cart", icon: <FaOpencart className="text-xl text-gray-800" />, badge: totalItems },
+            { href: "/about", label: "About", icon: <FcAbout className="text-xl" /> },
+            { href: "/menu", label: "Menu", icon: <MdRestaurantMenu className="text-xl text-red-500" /> }
+          ].map((link, idx) => (
+            <Link key={idx} href={link.href} onClick={handleMobileLinkClick}>
+              <li className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:text-amber-500 hover:scale-105 relative">
+                {link.icon} {link.label}
+                {/* Cart badge */}
+                {link.badge && link.badge > 0 && (
+                  <div className="absolute -top-2 -right-3 w-6 h-6 bg-red-500 rounded-full flex justify-center items-center text-white text-sm font-bold animate-pulse shadow-lg">
+                    {link.badge}
+                  </div>
+                )}
+              </li>
+            </Link>
+          ))}
         </ul>
       )}
 
-      {/* Right side: food icon + McDonald's image */}
-      <div className="flex items-center gap-3">
-        <IoFastFoodOutline className="text-3xl text-amber-600" />
-        <Image
-          width={70}
-          height={70}
-          src="https://png.pngtree.com/recommend-works/png-clipart/20250209/ourmid/pngtree-mcdonalds-logo-png-image_15326104.png"
-          alt="Not Found"
-          className="object-contain"
-        />
-      </div>
+      {/* Navbar animations */}
+      <style jsx>{`
+        @keyframes slideDown {
+          0% { transform: translateY(-50px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slideDown { animation: slideDown 0.5s ease forwards; }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+        .animate-float { animation: float 3s infinite ease-in-out; }
+
+        @keyframes floatText {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        .animate-floatText { animation: floatText 2s infinite ease-in-out; }
+      `}</style>
     </div>
   );
 }
