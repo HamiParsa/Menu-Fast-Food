@@ -39,7 +39,7 @@ export default function MegaFancyMenu() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-pink-500 via-amber-400 to-purple-600 animate-gradient-x opacity-20"></div>
 
       {/* Page title */}
-      <h1 className="text-3xl md:text-4xl font-extrabold text-center text-black mb-6 animate-fadeIn">
+      <h1 id="goToNav" className="text-3xl md:text-4xl font-extrabold text-center text-black mb-6 animate-fadeIn">
         🌟 Ultra Mega Fancy Menu
       </h1>
 

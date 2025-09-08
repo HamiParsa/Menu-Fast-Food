@@ -19,7 +19,7 @@ export default function UltraFancyNavBar() {
   const handleMobileLinkClick = () => setOpen(false);
 
   return (
-    <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-11/12 md:w-3/4 h-[100px] z-[9999]">
+    <div  className="fixed top-5 left-1/2 transform -translate-x-1/2 w-11/12 md:w-3/4 h-[100px] z-[9999]">
       {/* Glassmorphic navbar container */}
       <div className="w-full h-full bg-white/60 backdrop-blur-2xl rounded-3xl shadow-2xl flex justify-between items-center px-8 animate-slideDown">
         
