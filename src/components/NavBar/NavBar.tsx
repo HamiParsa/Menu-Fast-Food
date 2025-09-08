@@ -70,7 +70,7 @@ export default function UltraFancyNavBar() {
 
       {/* Mobile navigation menu */}
       {open && (
-        <ul className="absolute top-[100px] left-0 w-full bg-white/80 backdrop-blur-2xl rounded-b-3xl shadow-2xl flex flex-col gap-6 p-6 md:hidden animate-slideDown">
+        <ul className="absolute mt-[10px] top-[100px] left-0 w-full bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl flex flex-col gap-6 p-6 md:hidden animate-slideDown">
           {[
             { href: "/", label: "Home", icon: <RiHomeSmile2Fill className="text-xl text-green-400" /> },
             { href: "/cart", label: "Cart", icon: <FaOpencart className="text-xl text-gray-800" />, badge: totalItems },
