@@ -1,32 +1,31 @@
 <div align="center">
-  <h1>🚗 GTA San Andreas Universe</h1>
-  <p>Explore. Drive. Survive. — A cinematic web experience inspired by the legendary game.</p>
-  <a href="https://yourusername.github.io/gta-sanandreas/">
+  <h1>🍔 Menu Fast Food</h1>
+  <p>Delicious, Fast, and Interactive — your digital restaurant menu experience!</p>
+  <a href="https://hamiparsa.github.io/Menu-Fast-Food/">
     <img src="https://img.shields.io/badge/View_Live_Project-000?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
 </div>
 
 ---
 
-## 🔥 About GTA San Andreas Universe
+## 🍕 About Menu Fast Food
 
-**GTA San Andreas Universe** is a high-end, cinematic web experience built with **Next.js**, **React**, and **TypeScript**.  
-It brings the iconic open-world game to life through immersive visuals, smooth animations, and a nostalgic atmosphere that captures the true spirit of Los Santos.
+**Menu Fast Food** is a stylish and modern restaurant menu web app built with **Next.js**, **React**, and **TypeScript**.  
+It provides an interactive experience for food lovers — allowing users to explore meals, filter by categories (Pizza, Burger, Coffee, and more), and manage their shopping cart smoothly using **Zustand** for global state management.
 
-This project focuses on **modern UI**, **clean design**, and **interactive storytelling** — blending art and code to create a truly premium web experience.
+This project focuses on clean UI, fast performance, and real-world functionality for learning full-stack-ready front-end development.
 
 ---
 
 ## 🚀 Features
 
 <ul>
-  <li>🎬 <b>Home Page</b> with cinematic background and neon-glow typography</li>
-  <li>👥 <b>Characters Page</b> featuring key figures from the game with dynamic motion cards</li>
-  <li>🔧 <b>Mods Page</b> showcasing custom enhancements and visual upgrades</li>
-  <li>📖 <b>Story Page</b> — timeline of CJ’s journey with parallax scroll and animations</li>
-  <li>🏙️ <b>Locations Page</b> highlighting iconic places with stunning cityscape visuals</li>
-  <li>📬 <b>Contact Page</b> with a smooth, responsive form for fans and collaborators</li>
-  <li>⚡ <b>Fully Responsive</b> across all devices — from mobile to ultrawide screens</li>
+  <li>🍔 <b>Home Page</b> with a beautiful food image slider and animated transitions</li>
+  <li>🍟 <b>Menu Page</b> where users can browse and filter dishes by category</li>
+  <li>🛒 <b>Shopping Cart</b> built with Zustand — add, remove, and manage quantities easily</li>
+  <li>📱 <b>Fully Responsive</b> design that adapts to mobile, tablet, and desktop</li>
+  <li>🧭 <b>Navigation Bar</b> for seamless page navigation</li>
+  <li>⚡ <b>Modern UI</b> built with Tailwind CSS and Framer-like smooth animations</li>
 </ul>
 
 ---
@@ -36,26 +35,24 @@ This project focuses on **modern UI**, **clean design**, and **interactive story
 | Technology | Purpose |
 |-------------|----------|
 | ⚛️ **React** | Building UI components |
-| 🧭 **Next.js** | File-based routing & optimization |
-| 🟦 **TypeScript** | Static typing and cleaner architecture |
-| 🎨 **Tailwind CSS** | Modern and responsive styling |
-| 🎞️ **Framer Motion** | Smooth animations and transitions |
-| 🧩 **React Icons** | Sleek iconography across pages |
+| 🧭 **Next.js** | Routing and performance optimization |
+| 🟦 **TypeScript** | Type safety and cleaner code |
+| 🎨 **Tailwind CSS** | Fast and responsive styling |
+| 🧩 **Zustand** | Lightweight state management for cart functionality |
 
 ---
 
 ## 💡 Description
 
-The **GTA San Andreas Universe** project reimagines the open-world aesthetic in a web format.  
+The **Menu Fast Food** app showcases a practical and elegant approach to building a real-world restaurant website.  
 It allows users to:
 
-- Experience Los Santos with cinematic visuals 🌆  
-- Browse through legendary characters 👊  
-- Explore interactive maps and mods 🔧  
-- Relive the iconic storyline through motion-based pages 📖  
-- Enjoy smooth transitions and responsive design on all devices 📱  
+- Explore the menu visually with category filters 🍕  
+- Add and remove items from the shopping cart 🛒  
+- Experience smooth, responsive design across all devices 📱  
+- Enjoy a simple and intuitive UI enhanced with modern animations ✨  
 
-This project showcases professional-level front-end architecture and creativity — ideal for portfolios and immersive web experiences.
+This project demonstrates how to combine **Zustand** for state management, **Tailwind CSS** for styling, and **Next.js** for routing and scalability — ideal for developers aiming to master real-world front-end app architecture.
 
 ---
 
@@ -70,33 +67,33 @@ This project showcases professional-level front-end architecture and creativity 
   <br/><br/>
   <img src="/pic3.png" width="700px" />
 </div>
+
 <hr/>
+
 <div align="center">
   <img src="/pic4.png" width="700px" />
   <br/><br/>
   <img src="/pic5.png" width="700px" />
-  <br/><br/>
-  <img src="/pic6.png" width="700px" />
 </div>
 
 ---
 
-## 🔮 Future Enhancements
+## 🧠 Future Enhancements
 
-- 🏁 Add an interactive map of Los Santos with location hover effects  
-- 💬 Add sound effects and voice lines from the game  
-- 🎮 Add character selection and mod preview animations  
-- 🌍 Connect with a real database for mod uploads and community features  
+- 🥤 Add a checkout and payment section  
+- 🧾 Add order summary and history page  
+- 🔥 Add animations and transitions for cart and menu items  
+- 🌍 Integrate with a real database (Supabase / Firebase)
 
 ---
 
-## 👨‍💻 Author
+## 👨‍🍳 Author
 
 **Developed by:** [Hami Parsa](https://github.com/hamiparsa)  
-💬 Front-End Developer | Crafting cinematic and modern web experiences  
+💬 Passionate Front-End Developer | Crafting modern web experiences
 
 ---
 
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=react,next,typescript,tailwind,framer" />
+  <img src="https://skillicons.dev/icons?i=react,next,typescript,tailwind,redux" />
 </div>
