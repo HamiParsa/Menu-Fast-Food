@@ -89,7 +89,7 @@ export default function Footer() {
               Connect
             </h4>
             <a 
-              href="https://github.com/yourusername/mcdonalds-clone"
+              href="https://github.com/HamiParsa/Menu-Fast-Food"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gray-400 hover:text-amber-500 text-sm transition-colors"
