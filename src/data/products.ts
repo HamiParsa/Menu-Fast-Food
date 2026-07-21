@@ -157,7 +157,7 @@ export const products: Product[] = [
     id: 19,
     title: "pizza 9",
     image:
-      "https://images.nightcafe.studio/ik-seo/jobs/2QgLXgCW6aD1Ppatsm4g/2QgLXgCW6aD1Ppatsm4g--0--42dc9_1.5x-clty-upscale-jihey/pizza.jpg?tr=w-1600,c-at_max",
+      "https://iili.io/CNdMB3X.jpg",
     price: 16,
     category: "pizza",
   },
