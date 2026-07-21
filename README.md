@@ -74,7 +74,7 @@ This project demonstrates how to combine **Zustand** for state management, **Tai
 <div align="center">
   
   
-  </div>
+</div>
 
 ---
 
