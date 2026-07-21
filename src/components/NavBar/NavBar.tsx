@@ -1,117 +1,123 @@
 "use client";
-import Image from "next/image";
-import { RiHomeSmile2Fill } from "react-icons/ri";
-import { FcAbout } from "react-icons/fc";
-import { MdRestaurantMenu } from "react-icons/md";
-import { FaOpencart } from "react-icons/fa6";
-import { useCartStore } from "@/store/cartStore";
-import { IoFastFoodOutline } from "react-icons/io5";
-import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useCartStore } from "@/store/cartStore";
+import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-export default function UltraFancyNavBar() {
+export default function SimpleNav() {
   const totalItems = useCartStore((state) =>
     state.cart.reduce((sum, item) => sum + item.quantity, 0)
   );
-  const [open, setOpen] = useState(false);
-
-  const handleMobileLinkClick = () => setOpen(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div  className="fixed top-5 left-1/2 transform -translate-x-1/2 w-11/12 md:w-3/4 h-[100px] z-[9999]">
-      {/* Glassmorphic navbar container */}
-      <div className="w-full h-full bg-white/60 backdrop-blur-2xl rounded-3xl shadow-2xl flex justify-between items-center px-8 animate-slideDown">
-        
-        {/* Logo (desktop only) */}
-        <div className="text-2xl hidden md:block font-extrabold text-amber-500 animate-floatText cursor-pointer hover:scale-110 transition-transform duration-300">
-          McDonalds
-        </div>
+    <>
+      {/* Gold glow line */}
+      <div className="fixed top-0 left-0 w-full h-[2px] z-50 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent"></div>
 
-        {/* Desktop navigation links */}
-        <ul className="hidden md:flex text-lg gap-12 font-medium">
-          {[
-            { href: "/", label: "Home", icon: <RiHomeSmile2Fill className="text-xl text-green-400" /> },
-            { href: "/cart", label: "Cart", icon: <FaOpencart className="text-xl text-gray-800" />, badge: totalItems },
-            { href: "/about", label: "About", icon: <FcAbout className="text-xl" /> },
-            { href: "/menu", label: "Menu", icon: <MdRestaurantMenu className="text-xl text-red-500" /> }
-          ].map((link, idx) => (
-            <Link key={idx} href={link.href}>
-              <li className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:text-amber-600 hover:scale-105 hover:shadow-lg relative">
-                {link.icon} {link.label}
-                {/* Cart badge */}
-                {link.badge && link.badge > 0 && (
-                  <div className="absolute -top-2 -right-3 w-6 h-6 bg-red-500 rounded-full flex justify-center items-center text-white text-sm font-bold animate-pulse shadow-lg">
-                    {link.badge}
-                  </div>
-                )}
-              </li>
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+          
+          {/* Logo - Clean & Simple */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center shadow-lg shadow-amber-400/20 group-hover:shadow-amber-400/40 transition-all duration-500">
+              <span className="text-black font-bold text-xl tracking-tight">M</span>
+            </div>
+            <div>
+              <h1 className="text-xl font-light tracking-[0.3em] text-white/90 group-hover:text-white transition-colors duration-300">
+                <span className="font-medium text-amber-400">c</span>D
+              </h1>
+            </div>
+          </Link>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center gap-10">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/menu", label: "Menu" },
+              { href: "/about", label: "About" },
+            ].map((link) => (
+              <Link key={link.href} href={link.href}>
+                <div className="group relative py-2 cursor-pointer">
+                  <span className="text-white/40 group-hover:text-white text-sm tracking-[0.2em] uppercase transition-all duration-300">
+                    {link.label}
+                  </span>
+                  <span className="absolute -bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-amber-400/60 group-hover:w-full transition-all duration-300"></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Right Actions */}
+          <div className="flex items-center gap-4">
+            {/* Cart */}
+            <Link href="/cart" className="relative group">
+              <div className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-white/5 transition-all duration-300">
+                <div className="relative">
+                  <ShoppingBag size={20} className="text-white/40 group-hover:text-amber-400 transition-all duration-300" />
+                  {totalItems > 0 && (
+                    <div className="absolute -top-2 -right-2 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center shadow-lg shadow-amber-400/20">
+                      <span className="text-[9px] text-black font-bold">{totalItems}</span>
+                    </div>
+                  )}
+                </div>
+                <span className="hidden lg:block text-white/20 text-xs tracking-[0.2em] uppercase">
+                  Cart
+                </span>
+              </div>
             </Link>
-          ))}
-        </ul>
 
-        {/* Mobile menu toggle button */}
-        <button onClick={() => setOpen(!open)} className="md:hidden z-50 p-2 rounded-full bg-white/50 backdrop-blur-lg shadow-md hover:bg-white transition-all duration-300">
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-        {/* Right section: food icon + logo */}
-        <div className="flex items-center gap-3 animate-float">
-          <IoFastFoodOutline className="text-3xl text-amber-600 hover:scale-110 transition-transform duration-300" />
-          <Image
-            width={70}
-            height={70}
-            src="https://png.pngtree.com/recommend-works/png-clipart/20250209/ourmid/pngtree-mcdonalds-logo-png-image_15326104.png"
-            alt="Logo"
-            className="object-contain hover:scale-110 transition-transform duration-300"
-          />
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all duration-300"
+            >
+              {isOpen ? (
+                <X size={22} className="text-white/60" />
+              ) : (
+                <Menu size={22} className="text-white/60" />
+              )}
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile navigation menu */}
-      {open && (
-        <ul className="absolute mt-[10px] top-[100px] left-0 w-full bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl flex flex-col gap-6 p-6 md:hidden animate-slideDown">
-          {[
-            { href: "/", label: "Home", icon: <RiHomeSmile2Fill className="text-xl text-green-400" /> },
-            { href: "/cart", label: "Cart", icon: <FaOpencart className="text-xl text-gray-800" />, badge: totalItems },
-            { href: "/about", label: "About", icon: <FcAbout className="text-xl" /> },
-            { href: "/menu", label: "Menu", icon: <MdRestaurantMenu className="text-xl text-red-500" /> }
-          ].map((link, idx) => (
-            <Link key={idx} href={link.href} onClick={handleMobileLinkClick}>
-              <li className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:text-amber-500 hover:scale-105 relative">
-                {link.icon} {link.label}
-                {/* Cart badge */}
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 md:hidden bg-black/95 backdrop-blur-2xl">
+          <div className="flex flex-col items-center justify-center h-full gap-10 p-8">
+            <div className="w-12 h-[2px] bg-amber-400/20"></div>
+            
+            {[
+              { href: "/", label: "Home" },
+              { href: "/menu", label: "Menu" },
+              { href: "/about", label: "About" },
+              { href: "/cart", label: "Cart", badge: totalItems },
+            ].map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="group flex items-center gap-4"
+              >
+                <span className="text-white/20 text-sm tracking-[0.5em] uppercase">
+                  ●
+                </span>
+                <span className="text-white/60 group-hover:text-white text-3xl font-light tracking-[0.2em] transition-all duration-300">
+                  {link.label}
+                </span>
                 {link.badge && link.badge > 0 && (
-                  <div className="absolute -top-2 -right-3 w-6 h-6 bg-red-500 rounded-full flex justify-center items-center text-white text-sm font-bold animate-pulse shadow-lg">
+                  <span className="text-amber-400 text-sm bg-amber-400/10 px-3 py-1 rounded-full">
                     {link.badge}
-                  </div>
+                  </span>
                 )}
-              </li>
-            </Link>
-          ))}
-        </ul>
+              </Link>
+            ))}
+            
+            <div className="w-12 h-[2px] bg-amber-400/20"></div>
+          </div>
+        </div>
       )}
-
-      {/* Navbar animations */}
-      <style jsx>{`
-        @keyframes slideDown {
-          0% { transform: translateY(-50px); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-        .animate-slideDown { animation: slideDown 0.5s ease forwards; }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-        .animate-float { animation: float 3s infinite ease-in-out; }
-
-        @keyframes floatText {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-4px); }
-        }
-        .animate-floatText { animation: floatText 2s infinite ease-in-out; }
-      `}</style>
-    </div>
+    </>
   );
 }
