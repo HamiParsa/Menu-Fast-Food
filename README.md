@@ -67,6 +67,7 @@ This project demonstrates how to combine **Zustand** for state management, **Tai
   <br/><br/>
   <img src="/pic3.png" width="700px" />
   <br/>
+  <br/>
 </div>
 <div align="center">
   <img src="/pic4.png" width="700px" />
