@@ -14,7 +14,6 @@
 It provides an interactive experience for food lovers — allowing users to explore meals, filter by categories (Pizza, Burger, Coffee, and more), and manage their shopping cart smoothly using **Zustand** for global state management.
 
 This project focuses on clean UI, fast performance, and real-world functionality for learning full-stack-ready front-end development.
-
 ---
 
 ## 🚀 Features
