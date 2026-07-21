@@ -90,7 +90,7 @@ This project demonstrates how to combine **Zustand** for state management, **Tai
 ## 👨‍🍳 Author
 
 **Developed by:** [Hami Parsa](https://github.com/hamiparsa)  
-💬 Passionate Front-End Developer | Crafting modern web experiences
+💬 Passionate Full Stack Developer | Crafting modern web experiences
 
 ---
 
